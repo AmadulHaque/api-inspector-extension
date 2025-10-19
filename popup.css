@@ -1,0 +1,328 @@
+/*
+  API Tracker Pro - Professional Dark Theme Design
+*/
+
+:root {
+    --color-bg-primary: #1e1e1e;
+    /* Main dark background */
+    --color-bg-secondary: #252526;
+    /* Header/Panel background */
+    --color-text-primary: #f0f0f0;
+    /* Main text color (light) */
+    --color-text-secondary: #aaaaaa;
+    /* Subtext/secondary info */
+    --color-accent-blue: #007acc;
+    /* VS Code/DevTools blue */
+    --color-accent-green: #60a63e;
+    /* Success Green */
+    --color-accent-red: #cc6666;
+    /* Error Red */
+    --color-accent-yellow: #dcdcaa;
+    /* Redirect/Highlight Yellow */
+    --color-border: #333333;
+    /* Dark border lines */
+    --color-hover: #3c3c3c;
+    /* Hover background */
+    --color-select: #1b1b1b;
+    /* Input/Code block background */
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    width: 750px;
+    /* Optimal width for data */
+    min-height: 400px;
+    max-height: 600px;
+    margin: 0;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    overflow: hidden;
+    /* Prevent body scroll */
+}
+
+/* --------------------
+   HEADER & CONTROLS
+   -------------------- */
+
+.header {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.title-bar h3 {
+    margin: 0;
+    font-size: 16px;
+    color: var(--color-accent-blue);
+    font-weight: 600;
+}
+
+.actions button {
+    cursor: pointer;
+    background: var(--color-select);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.actions button:hover {
+    background: var(--color-hover);
+    border-color: var(--color-accent-blue);
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.filters input,
+.filters select {
+    font-size: 12px;
+    padding: 6px 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background-color: var(--color-select);
+    color: var(--color-text-primary);
+    /* Remove default browser styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.filters input[type="text"] {
+    flex: 1;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    background: var(--color-select);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.stats span:not(:last-child) {
+    border-right: 1px solid var(--color-border);
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+/* --------------------
+   LOG LIST
+   -------------------- */
+
+.log-list {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 200px;
+}
+
+.log-list-empty {
+    text-align: center;
+    padding: 40px;
+    color: var(--color-text-secondary);
+}
+
+.log-entry {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.log-entry:hover {
+    background: var(--color-hover);
+}
+
+.log-entry.selected {
+    background: var(--color-hover);
+    border-left: 3px solid var(--color-accent-blue);
+    padding-left: 12px;
+}
+
+/* Status Badges */
+.log-status {
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 11px;
+    margin-right: 12px;
+    color: var(--color-select);
+    /* Use a dark color for text on light badge */
+    min-width: 55px;
+    text-align: center;
+}
+
+.log-status.s-200 {
+    background: var(--color-accent-green);
+    color: var(--color-select);
+}
+
+.log-status.s-300 {
+    background: var(--color-accent-yellow);
+    color: var(--color-bg-primary);
+}
+
+.log-status.s-400 {
+    background: var(--color-accent-red);
+    color: var(--color-text-primary);
+}
+
+.log-status.s-500 {
+    background: #964b00;
+    color: var(--color-text-primary);
+}
+
+/* Darker orange for server error */
+.log-status.s-mock {
+    background: var(--color-accent-blue);
+    color: var(--color-text-primary);
+}
+
+.log-status.s-error {
+    background: var(--color-text-secondary);
+    color: var(--color-select);
+}
+
+.log-method {
+    font-weight: 600;
+    margin-right: 12px;
+    width: 50px;
+    color: var(--color-accent-blue);
+}
+
+.log-url {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+.log-meta {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    text-align: right;
+    min-width: 100px;
+    line-height: 1.4;
+}
+
+/* --------------------
+   DETAILS PANEL
+   -------------------- */
+
+.details-panel {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    max-height: 600px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-bg-primary);
+    z-index: 20;
+    /* Ensure it covers the list */
+}
+
+.details-panel.active {
+    display: flex;
+}
+
+#close-details-btn {
+    margin: 10px 15px;
+    align-self: flex-start;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+}
+
+#close-details-btn:hover {
+    background: var(--color-hover);
+}
+
+#details-content {
+    padding: 0 15px 15px 15px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.details-section {
+    margin-bottom: 20px;
+}
+
+.details-section h4 {
+    margin: 15px 0 8px 0;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 4px;
+    font-size: 14px;
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.details-section p {
+    margin: 4px 0;
+    color: var(--color-text-secondary);
+}
+
+.details-section strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.details-actions button {
+    margin-right: 8px;
+    background: var(--color-accent-blue);
+    color: white;
+    border: none;
+}
+
+.details-actions button:hover {
+    background: #005f99;
+}
+
+/* Code Previews (Syntax Highlighting Effect) */
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: var(--color-select);
+    color: #c586c0;
+    /* JSON/Code purple for keys/strings */
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    font-size: 12px;
+    max-height: 250px;
+    overflow: auto;
+    border: 1px solid var(--color-border);
+}
+
+/* Specific coloring for value in JSON */
+pre code {
+    color: #9cdcfe;
+    /* Light blue for values/numbers */
+}

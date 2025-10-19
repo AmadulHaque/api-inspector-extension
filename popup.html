@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>API Tracker</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="title-bar">
+            <h3>API Tracker</h3>
+            <div class="actions">
+                <button id="clear-btn" title="Clear logs for this tab">Clear</button>
+                <button id="export-btn" title="Export logs as JSON">Export</button>
+            </div>
+        </div>
+        <div class="filters">
+            <input type="text" id="search-box" placeholder="Search URL...">
+            <select id="method-filter">
+                <option value="">All Methods</option>
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+                <option value="PUT">PUT</option>
+                <option value="PATCH">PATCH</option>
+                <option value="DELETE">DELETE</option>
+            </select>
+            <select id="status-filter">
+                <option value="">All Statuses</option>
+                <option value="success">Success (2xx)</option>
+                <option value="redirect">Redirect (3xx)</option>
+                <option value="client-error">Client Error (4xx)</option>
+                <option value="server-error">Server Error (5xx)</option>
+                <option value="mocked">Mocked</option>
+            </select>
+        </div>
+        <div class="stats" id="stats-bar">
+            <span>Total: 0</span>
+            <span>Avg Latency: 0ms</span>
+            <span>Success: 0%</span>
+            <span>Errors: 0%</span>
+            <span>Down: 0 KB</span>
+        </div>
+    </div>
+
+    <div class="log-list" id="log-list">
+        <div class="log-list-empty">No API calls detected yet.</div>
+    </div>
+
+    <div class="details-panel" id="details-panel">
+        <button id="close-details-btn">← Back to list</button>
+        <div id="details-content"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
